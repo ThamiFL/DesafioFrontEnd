@@ -5,63 +5,73 @@
 }
 section {
   background-color: rgb(252, 237, 227);
-  height: 90vh;
+  min-height: 90vh;         // min-height cresce com o conteúdo
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem 1rem;       // respira nas laterais no mobile
 
   h2 {
-    border: solid;
+    margin-bottom: 1.5rem;
+    font-family: "Poppins";
+    color: rgb(54, 54, 54);
   }
 
   form {
     background-color: rgb(255, 250, 245);
-    margin: 10rem;
-    border: solid;
-    border-radius: 3%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+    padding: 2rem;            // espaço interno do form
+    gap: 1rem;                // espaço entre cada .campo
+    width: min(480px, 90vw); // responsivo
   }
 
-  label {
-    border: solid;
-    font-family: "Roboto";
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: rgb(63, 63, 63);
-  }
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;                 // espaço entre label e input
 
-  input {
-    width: 100%;
-    padding: 8px 12px;
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-family: "Roboto";
-    transition: border-color 0.2s;
+    label {
+      font-family: "Roboto";
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgb(63, 63, 63);
+    }
+
+    input {
+      padding: 10px 12px;
+      border: 0.5px solid rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: "Roboto";
+      width: 100%;            // ocupa toda a largura do form
+      transition: border-color 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: rgb(53, 150, 241);
+      }
+    }
   }
 
   button {
-    text-decoration: none;
+    align-self: flex-end;     // botão alinhado à direita
     border: none;
     font-family: "Source Sans 3";
     font-size: 0.9rem;
     font-weight: 600;
-    color: #ffffffff;
-    padding: 5px;
-    transition: 0.2s;
+    color: #fff;
+    padding: 8px 24px;
     background-color: rgb(143, 201, 255);
     border-radius: 10px;
-    width: 6vw;
-    margin-top: 2rem;
     cursor: pointer;
+    transition: background-color 0.2s, border-radius 0.2s;
+    margin-top: 0.5rem;
 
     &:hover {
       background-color: rgb(53, 150, 241);
-      color: white;
       border-radius: 5px;
     }
   }

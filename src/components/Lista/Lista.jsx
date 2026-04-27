@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import styles from "./Lista.module.scss";
+
+
 
 export default function Desaparecidos() {
   const [listaDesaparecidos, setListaDesaparecidos] = useState([]);
@@ -16,15 +19,23 @@ export default function Desaparecidos() {
   }, []);
 
   return (
-    // Seção principal da página
-    <section class="desaparecidos">
+    <section className={styles.desaparecidos}>
       <h2>Lista De Desaparecidos</h2>
 
-      <section className="container-cards">
+
+
+      <section className={styles.cards}>
         {listaDesaparecidos.map((item) => (
-          <article key={item.id} className="card">
-            {/* Tipo do problema */}
+          <article key={item.id} className={styles.card}>
+            <img src={item.foto} alt=""/>
             <h3>{item.nome}</h3>
+            <p>{item.idade}</p>
+            <p>{item.caracteristicas}</p>
+            <p>{item.roupa}</p>
+            <p>{item.ultimo_local}</p>
+            <p>{item.condicoes_saude}</p>
+            <p>{item.endereco}</p>
+            <div>{item.status}</div>
           </article>
         ))}
       </section>
